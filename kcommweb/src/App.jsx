@@ -1,44 +1,9 @@
-import './App.css'
+import './App.css';
 
 import '@mantine/core/styles.css';
-import { MantineProvider, Button, createTheme } from '@mantine/core';
-
-const appColor = [
-  "#ffe9ff",
-  "#f8d0ff",
-  "#ee9ffc",
-  "#e36bf9",
-  "#db3ef6",
-  "#d624f5",
-  "#d515f6",
-  "#bc08db",
-  "#a800c5",
-  "#9300ab"
-];
-const greenColor = [
-  "#e9fce9",
-  "#daf3da",
-  "#b5e5b6",
-  "#8ed490",
-  "#6dc76f",
-  "#58bf5a",
-  "#4bbb4e",
-  "#3ca43f",
-  "#329335",
-  "#237f29"
-];
-const redColor = [
-  "#ffebeb",
-  "#fad8d8",
-  "#ebb1b1",
-  "#dd8788",
-  "#d16464",
-  "#ca4d4d",
-  "#c84040",
-  "#b13233",
-  "#9e2a2c",
-  "#8c2024"
-];
+import { MantineProvider, Button, Title, createTheme } from '@mantine/core';
+import { appColor, greenColor, redColor } from './appconstant.js';
+import { HeaderSimple } from './uicommon/Header.jsx'
 
 const defaultTheme = createTheme({
   primaryColor: 'appcolor',
@@ -52,13 +17,21 @@ const defaultTheme = createTheme({
 function App() {
 
   return (
+
     <MantineProvider theme={defaultTheme}>
-      <>
-        Welcome to app! 
+      <HeaderSimple>
+
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
         This is green <Button color="green">Button</Button>
         This is default <Button>Button</Button>
-      </> 
+      </HeaderSimple>
     </MantineProvider>
+
   )
 }
 
