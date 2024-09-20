@@ -3,7 +3,7 @@ import './App.css';
 import '@mantine/core/styles.css';
 import { MantineProvider, Button, Title, createTheme } from '@mantine/core';
 import { appColor, greenColor, redColor } from './appconstant.js';
-import { HeaderSimple } from './uicommon/Header.jsx'
+import { AppLayout } from './uicommon/AppLayout.jsx'
 
 const defaultTheme = createTheme({
   primaryColor: 'appcolor',
@@ -19,7 +19,7 @@ function App() {
   return (
 
     <MantineProvider theme={defaultTheme}>
-      <HeaderSimple>
+      <AppLayout>
 
         <Title order={1}>
           Welcome to app!
@@ -29,7 +29,96 @@ function App() {
         </Title>
         This is green <Button color="green">Button</Button>
         This is default <Button>Button</Button>
-      </HeaderSimple>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+        <Title order={1}>
+          Welcome to app!
+        </Title>
+        <Title order={2}>
+          Welcome to app!
+        </Title>
+        This is green <Button color="green">Button</Button>
+        This is default <Button>Button</Button>
+      </AppLayout>
+
     </MantineProvider>
 
   )
