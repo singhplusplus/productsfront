@@ -4,6 +4,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 // import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './AppLayout.module.css';
+import {Outlet} from 'react-router-dom';
 
 const links = [
   { link: '/about', label: 'Features' },
@@ -13,7 +14,7 @@ const links = [
 ];
 
 
-export function AppLayout(props) {
+export function AppLayout() {
   const [opened, { toggle }] = useDisclosure();
   const [active, setActive] = useState(links[0].link);
   
@@ -32,16 +33,21 @@ export function AppLayout(props) {
     </a>
   ));
 
+  const loginLink = <a href="#" className={classes.link}>Login / Signup</a>;
+
   return (
-    <AppShell
-      header={{ height: {base:60, sm: 60, lg: 76 }}}
-    >
-      <Drawer position="right" opened={opened} onClose={toggle} title={"Authentication"} 
+    <AppShell header={{ height: {base:60, sm: 60, lg: 76 }}} >
+
+      <Drawer position="right" opened={opened} onClose={toggle}
+        title={"Authentication"} 
         overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
       >
         {/* Drawer content */}
         <Stack gap={5}>
           {items}
+        </Stack>
+        <Stack>
+          {loginLink}
         </Stack>
       </Drawer>
 
@@ -52,13 +58,17 @@ export function AppLayout(props) {
           <Group gap={5} visibleFrom="xs">
             {items}
           </Group>
+          <Group visibleFrom="xs">
+            {loginLink}
+          </Group>
+
           <Burger position="right" opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
         </Container>
       </AppShell.Header>
 
       <AppShell.Main>
         <Box pt={12} pb={{base:144, sm: 84, lg: 84 }} px={4}>
-          {props.children}
+          <Outlet />
         </Box>
       </AppShell.Main>
 
