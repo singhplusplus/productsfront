@@ -120,7 +120,10 @@ const appRouter = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<AppLayout />}>
       <Route index element={dummyContent} />
-      <Route path="navigation" element={<p>This is navigation page</p>} />
+      <Route path="about" element={<p>This is navigation page</p>} />
+      <Route path="pricing" element={<p>This is pricing page</p>} />
+      <Route path="learn" element={<p>This is learn page</p>} />
+      <Route path="community" element={<p>This is community page</p>} />
     </Route>
   )
 )

@@ -1,10 +1,9 @@
-import { useState } from 'react';
 import { AppShell, Burger, Group, Container, Box, Title, Drawer, Stack, ActionIcon, rem } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { IconBrandTwitter, IconBrandYoutube, IconBrandInstagram } from '@tabler/icons-react';
 // import { MantineLogo } from '@mantinex/mantine-logo';
 import classes from './AppLayout.module.css';
-import {Outlet} from 'react-router-dom';
+import { NavLink, Outlet, Navigate } from 'react-router-dom';
 
 const links = [
   { link: '/about', label: 'Features' },
@@ -15,30 +14,28 @@ const links = [
 
 
 export function AppLayout() {
-  const [opened, { toggle }] = useDisclosure();
-  const [active, setActive] = useState(links[0].link);
-  
+  const [opened, { open, close }] = useDisclosure();
+
+  function navigateHome() {
+
+  }
+
   const items = links.map((link) => (
-    <a
+    <NavLink 
+      to={link.link} 
+      className={(navdata) => navdata.isActive ? classes.link + ' ' + classes.activelink : classes.link} 
       key={link.label}
-      href={link.link}
-      className={classes.link}
-      data-active={active === link.link || undefined}
-      onClick={(event) => {
-        event.preventDefault();
-        setActive(link.link);
-      }}
-    >
-      {link.label}
-    </a>
+      onClick={close}>
+        {link.label}
+    </NavLink>
   ));
 
-  const loginLink = <a href="#" className={classes.link}>Login / Signup</a>;
+  const loginLink = <NavLink to="login" className={classes.link}>Login / Signup</NavLink>;
 
   return (
     <AppShell header={{ height: {base:60, sm: 60, lg: 76 }}} >
 
-      <Drawer position="right" opened={opened} onClose={toggle}
+      <Drawer position="right" opened={opened} onClose={close}
         title={"Authentication"} 
         overlayProps={{ backgroundOpacity: 0.5, blur: 4 }}
       >
@@ -54,7 +51,10 @@ export function AppLayout() {
       <AppShell.Header>
         <Container size="sm" className={classes.inner}>
           {/* <MantineLogo size={28} /> */}
-          <Title>App</Title>
+          {/* <NavLink to="/"> */}
+
+            <Title>App</Title>
+          {/* </NavLink> */}
           <Group gap={5} visibleFrom="xs">
             {items}
           </Group>
@@ -62,7 +62,7 @@ export function AppLayout() {
             {loginLink}
           </Group>
 
-          <Burger position="right" opened={opened} onClick={toggle} hiddenFrom="xs" size="sm" />
+          <Burger position="right" opened={opened} onClick={open} hiddenFrom="xs" size="sm" />
         </Container>
       </AppShell.Header>
 
