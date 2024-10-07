@@ -53,23 +53,6 @@ const testSlice = createSlice({
       state.isLoading = true;
     }
   }
-  // reducers: (builder) => {
-  //   builder.addCase("test/data", (state, action) => {
-  //     state.test = "success";
-  //     state.isLoading = false;
-  //     state.error = false;
-  //   })
-  //   builder.addCase("test/failed", (state, action) => {
-  //     state.test = "failed";
-  //     state.isLoading = false;
-  //     state.error = true;
-  //   })
-  //   builder.addCase("test/pending", (state, action) => {
-  //     // state.test = "...";
-  //     state.isLoading = true;
-  //     // state.error = false;
-  //   })
-  // }
 });
 
 export const testReducer = testSlice.reducer;
